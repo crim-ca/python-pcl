@@ -169,6 +169,10 @@ msgid ":obj:`python-pcl.CropHull <python-pcl.CropHull>`"
 msgstr ""
 
 #: ..\..\<autosummary>:1
+msgid ":obj:`python-pcl.FrustumCulling <python-pcl.FrustumCulling>`"
+msgstr ""
+
+#: ..\..\<autosummary>:1
 msgid ":obj:`python-pcl.FieldComparison <python-pcl.FieldComparison>`"
 msgstr ""
 

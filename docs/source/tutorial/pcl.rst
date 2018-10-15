@@ -42,6 +42,7 @@ pcl
       ConditionalRemoval
       CropBox
       CropHull
+      FrustumCulling
       EuclideanClusterExtraction
       GeneralizedIterativeClosestPoint
       HarrisKeypoint3D

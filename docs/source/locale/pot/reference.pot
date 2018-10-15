@@ -165,6 +165,11 @@ msgid ":obj:`python-pcl.CropBox <python-pcl.CropBox>`"
 msgstr ""
 
 #: ..\..\<autosummary>:1
+msgid ":obj:`python-pcl.FrustumCulling <python-pcl.FrustumCulling>`"
+msgstr ""
+
+
+#: ..\..\<autosummary>:1
 msgid ":obj:`python-pcl.CropHull <python-pcl.CropHull>`"
 msgstr ""
 

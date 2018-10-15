@@ -188,6 +188,8 @@ cdef class Common:
 # include "OctreePointCloud.pxi"
 # include "Vertices.pxi"
 # include "CropHull.pxi"
+# include "FrustumCulling.pxi"
+
 # include "CropBox.pxi"
 # include "ProjectInliers.pxi"
 # include "RadiusOutlierRemoval.pxi"

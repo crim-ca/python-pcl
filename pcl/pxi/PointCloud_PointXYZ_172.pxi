@@ -396,6 +396,15 @@ cdef class PointCloud:
         """
         return CropHull(self)
 
+    def make_frustumculling(self):
+        """
+        Return a pcl.CropHull object with this object set as the input-cloud
+
+        Deprecated: use the pcl.Vertices constructor on this cloud.
+        """
+        f = FrustumCulling()
+        return FrustumCulling(self)
+
     def make_cropbox(self):
         """
         Return a pcl.CropBox object with this object set as the input-cloud

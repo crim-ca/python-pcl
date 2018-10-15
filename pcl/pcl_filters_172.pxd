@@ -1669,4 +1669,29 @@ cdef extern from "pcl/filters/conditional_removal.h" namespace "pcl::ComparisonO
 # voxel_grid_covariance.h
 # voxel_grid_label.h
 # voxel_grid_occlusion_estimation.h
-### 
+###
+# frustum_culling.h
+# template<typename PointT>
+# class FrustumCulling : public FilterIndices<PointT>
+cdef extern from "pcl/filters/frustum_culling.h" namespace "pcl":
+    cdef cppclass FrustumCulling[T](FilterIndices[T]):
+        FrustumCulling()
+        # using Filter<PointT>::indices_;
+        # ctypedef typename Filter<PointT>::PointCloud PointCloud;
+        # public:
+        # * \brief Filter the input data and store the results into output
+        # * \param[out] output the resultant point cloud message
+        void applyFilter (cpp.PointCloud[T] &output)
+        void setCameraPose (const eigen3.Matrix4f& camera_pose) 
+        void setHorizontalFOV (float hfov)
+        void setVerticalFOV (float vfov)
+        void setNearPlaneDistance (float np_dist)
+        void setFarPlaneDistance (float fp_dist)
+
+###
+ctypedef FrustumCulling[cpp.PointXYZ] FrustumCulling_t
+ctypedef FrustumCulling[cpp.PointXYZI] FrustumCulling_PointXYZI_t
+ctypedef FrustumCulling[cpp.PointXYZRGB] FrustumCulling_PointXYZRGB_t
+ctypedef FrustumCulling[cpp.PointXYZRGBA] FrustumCulling_PointXYZRGBA_t
+
+

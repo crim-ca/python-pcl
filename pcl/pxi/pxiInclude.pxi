@@ -24,6 +24,7 @@ include "Octree/OctreePointCloudSearch.pxi"
 include "Octree/OctreePointCloudChangeDetector.pxi"
 # Filters
 include "Filters/CropHull.pxi"
+include "Filters/FrustumCulling.pxi"
 include "Filters/CropBox.pxi"
 include "Filters/ProjectInliers.pxi"
 include "Filters/RadiusOutlierRemoval.pxi"
