@@ -139,12 +139,33 @@ include "pxi/PointCloud_PointNormal.pxi"
 # Add PointCloud2
 include "pxi/PointCloud_PCLPointCloud2.pxi"
 
+
+def dump(obj):
+  for attr in dir(obj):
+    print("obj.%s = %r" % (attr, getattr(obj, attr)))
+
 ### common ###
 def deg2rad(float alpha):
     return pcl_cmn.deg2rad(alpha)
 
 def rad2deg(float alpha):
     return pcl_cmn.rad2deg(alpha)
+def TransformPointCloud(PointCloud pcin_,xform_mat):
+    cdef cpp.PointCloud[cpp.PointXYZ] pcin = pcin_.thisptr()[0]
+    pcout_ = PointCloud()
+    cdef cpp.PointCloud[cpp.PointXYZ] *pcout = pcout_.thisptr()
+    cdef eigen3.Matrix4f o
+    cdef float *po = o.data()
+    k = 0
+    for i in range(0,4):
+      for j in range(0,4):
+          po[k] = xform_mat[i,j]
+          k+=1
+
+    pcl_cmn.transformPointCloud(pcin,deref(pcout),o)
+#    print("after transform: {} pts".format((*pcout).size()))
+    
+    return pcout_ 
 
 # cdef double deg2rad(double alpha):
 #     return pcl_cmn.rad2deg(alpha)

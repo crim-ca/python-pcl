@@ -5005,7 +5005,14 @@ cdef extern from "pcl/common/io.h" namespace "pcl":
 #                      const std::vector<int> &indices, 
 #                      pcl::PointCloud<PointT> &cloud_out, 
 #                      const Eigen::Transform<Scalar, 3, Eigen::Affine> &transform);
-# 
+#
+
+
+cdef extern from "pcl/common/transforms.h" namespace "pcl":
+  cdef void transformPointCloud[T](const cpp.PointCloud[T]& cloud_in, cpp.PointCloud[T]& out, const eigen3.Matrix4f& tform)
+
+
+ 
 # template <typename PointT> void 
 # transformPointCloud (const pcl::PointCloud<PointT> &cloud_in, 
 #                      const std::vector<int> &indices, 

@@ -47,6 +47,9 @@ cdef extern from "pcl/common/angles.h" namespace "pcl":
     # inline float normAngle (float alpha);
     cdef float normAngle (float alpha)
 
+cdef extern from "pcl/common/transforms.h" namespace "pcl":
+  cdef void transformPointCloud[T](const cpp.PointCloud[T]& cloud_in, cpp.PointCloud[T]& out, const eigen3.Matrix4f& tform)
+
 
 ###
 
