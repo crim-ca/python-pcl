@@ -159,9 +159,8 @@ def TransformPointCloud(PointCloud pcin_,xform_mat):
     k = 0
     for i in range(0,4):
       for j in range(0,4):
-          po[k] = xform_mat[i,j]
+          po[k] = xform_mat[j,i]
           k+=1
-
     pcl_cmn.transformPointCloud(pcin,deref(pcout),o)
 #    print("after transform: {} pts".format((*pcout).size()))
     
