@@ -50,17 +50,16 @@ cdef class FrustumCulling:
         # self.me.filter(<vector[int]> outputCloud)
         # self.me.filter(<vector[int]&> outputCloud)
         self.me.c_filter(outputCloud.thisptr()[0])
-        print("filter: outputCloud size = " + str(outputCloud.size))
+        #print("filter: outputCloud size = " + str(outputCloud.size))
         return outputCloud
 
     def SetCameraPose (self,camera_pose):
-        print(type(camera_pose))
         cdef eigen3.Matrix4f o
         cdef float *po = o.data()
         k = 0
         for i in range(0,4):
           for j in range(0,4):
-              po[k] = camera_pose[i,j]
+              po[k] = camera_pose[j,i]
               k+=1
  
         self.me.setCameraPose(o)
