@@ -48,13 +48,13 @@ cdef class CropHull:
         # self.me.filter(<vector[int]> outputCloud)
         # self.me.filter(<vector[int]&> outputCloud)
         self.me.c_filter(outputCloud.thisptr()[0])
-        print("filter: outputCloud size = " + str(outputCloud.size))
+#        print("filter: outputCloud size = " + str(outputCloud.size))
         return outputCloud
 
     def filter(self):
         cdef PointCloud pc = PointCloud()
         self.me.c_filter(pc.thisptr()[0])
-        print("filter: pc size = " + str(pc.size))
+#        print("filter: pc size = " + str(pc.size))
         return pc
 
 
